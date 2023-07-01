@@ -17,7 +17,7 @@ import { CategoryModule } from './category/category.module';
         type: 'mysql',
         host: configService.get('HOST_HOST'),
         port: configService.get('HOST_PORT'),
-        user: configService.get('DB_USER'),
+        username: configService.get('DB_USER'),
         password: configService.get('DB_PASS'),
         database: configService.get('DB_NAME'),
         retryDelay: 3000,

@@ -1,8 +1,14 @@
-import { Comments } from 'src/comments/entities/comments.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { CommentsEntity } from 'src/comments/entities/comments.entities';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('post')
-export class PostEntities {
+export class PostEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,5 +18,7 @@ export class PostEntities {
   @Column('text')
   content: string;
 
-  @OneToMany(()=> Comments, (comment) => comment.post)
+  @OneToMany(() => CommentsEntity, (comment) => comment.post)
+  @JoinColumn()
+  comments: CommentsEntity[];
 }
