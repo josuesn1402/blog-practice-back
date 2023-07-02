@@ -6,6 +6,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { CategoryEntity } from './category.entities';
 
 @Entity('post')
 export class PostEntity {
@@ -24,4 +25,8 @@ export class PostEntity {
   @OneToMany(() => CommentsEntity, (comment) => comment.post)
   @JoinColumn()
   comments: CommentsEntity[];
+
+  @OneToMany(() => CategoryEntity, (category) => category.post)
+  @JoinColumn()
+  category: CategoryEntity[];
 }

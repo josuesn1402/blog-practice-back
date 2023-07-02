@@ -27,7 +27,7 @@ import { CategoryModule } from './category/category.module';
     }),
     CommentsModule,
     PostModule,
-    CategoryModule,
+    // CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
