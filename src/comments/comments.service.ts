@@ -24,7 +24,7 @@ export class CommentsService {
     if (comment) {
       return comment;
     }
-    throw new NotFoundException(`No  puedo encontrar ese commentario`);
+    throw new NotFoundException(`No  puedo encontrar ese comentario`);
   }
 
   async insert(body: CommentsDto): Promise<CommentsEntity> {

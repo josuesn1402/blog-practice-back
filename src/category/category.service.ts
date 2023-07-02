@@ -38,15 +38,13 @@ export class CategoryService {
   }
 
   async update(id: number, body: CategoryDto): Promise<CategoryEntity> {
-    const inputCategory = {
-      id,
-      ...body,
-    };
-    const category = await this.categoryRepository.preload(inputCategory);
-    if (category) {
-      return this.categoryRepository.save(category);
+    const category = await this.categoryRepository.findOne({ where: { id } });
+    if (!category) {
+      throw new NotFoundException(`No he encontrado la categoria con id ${id}`);
     }
-    throw new NotFoundException(`No he encontrado lap categoria con id ${id}`);
+    category.description = body.description;
+
+    return this.categoryRepository.save(category);
   }
 
   async delete(id: number): Promise<void> {

@@ -29,7 +29,7 @@ export class PostService {
     if (post) {
       return this.postRepository.create(post);
     }
-    throw new NotFoundException(`No  puedo encontrar ese post`);
+    throw new NotFoundException(`No puedo encontrar ese post`);
   }
 
   async insert(body: PostDto): Promise<PostEntity> {
