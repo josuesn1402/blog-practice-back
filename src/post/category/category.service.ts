@@ -16,11 +16,13 @@ export class CategoryService {
 
   async insertCategory(id: number, body: CategoryDto) {
     const post = await this.postRepository.findOne({ where: { id } });
+    console.log(post);
+
     if (post) {
       const category = this.categoryRepository.create(body);
       category.post = post;
       return await this.categoryRepository.save(category);
     }
-    throw new NotFoundException(`El producto con id ${id} no existe`);
+    throw new NotFoundException(`El post con id ${id} no existe`);
   }
 }
