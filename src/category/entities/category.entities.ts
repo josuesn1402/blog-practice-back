@@ -12,7 +12,7 @@ export class CategoryEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, type: 'varchar', length: 15 })
+  @Column({ unique: true, type: 'varchar', length: 40 })
   description: string;
 
   @OneToMany(() => PostEntity, (post) => post.category)

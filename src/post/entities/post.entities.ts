@@ -14,7 +14,7 @@ export class PostEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('varchar', { length: 20 })
+  @Column('varchar', { length: 45 })
   title: string;
 
   @Column('text')

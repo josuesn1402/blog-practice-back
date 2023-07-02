@@ -59,16 +59,16 @@
 
 ```json
 {
-  "title": "Zorros jugando en la nieve",
+    "title": "Zorro en la nieve",
   "content": "Los zorros son animales fascinantes que se adaptan perfectamente al frío invierno. En esta imagen, podemos ver a un grupo de zorros blancos jugando y explorando la nieve. Su pelaje espeso y su cola esponjosa los ayudan a mantenerse calientes en condiciones extremas. Los zorros son conocidos por su agilidad y astucia, y verlos disfrutar de la nieve es una verdadera delicia. ¡Una escena mágica de la naturaleza!\n\nAdemás de su belleza, los zorros también desempeñan un papel importante en el ecosistema. Son depredadores eficientes que ayudan a controlar las poblaciones de roedores y otros pequeños animales. Su presencia es un indicador de un ecosistema saludable. En resumen, los zorros en la nieve son una imagen hermosa y también nos recuerdan la importancia de la conservación de la fauna silvestre.",
   "urlImage": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=872&q=80",
-  "category": "Zorros en la nieve"
+  "category": "Animales"
 }
 ```
 
 ```json
 {
-  "title": "Estilo minimalista: la belleza en la simplicidad",
+  "title": "La belleza en la simplicidad",
   "content": "El minimalismo es un estilo de vida que busca la simplicidad y la reducción de elementos innecesarios. En esta imagen, podemos apreciar un ambiente minimalista con muebles y decoración en tonos neutros, líneas limpias y espacios despejados. El minimalismo nos invita a despojarnos de lo superfluo y a enfocarnos en lo esencial. En lugar de llenar nuestros espacios con objetos y decoraciones excesivas, buscamos la calma y la armonía en la pureza de las formas y en la ausencia de distracciones. Esta imagen nos muestra cómo la simplicidad puede ser elegante y reconfortante. El minimalismo es mucho más que un estilo de diseño, es una forma de vida que nos ayuda a encontrar la belleza en la sencillez.",
   "urlImage": "https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=869&q=80",
   "category": "Minimalista"
@@ -77,16 +77,16 @@
 
 ```json
 {
-  "title": "Disfrutando de una taza de café durante el trabajo",
+  "title": "Taza de café durante el trabajo",
   "content": "El café es una bebida estimulante que nos acompaña en nuestras largas jornadas de trabajo. Aquellos que disfrutamos de una taza de café durante nuestras horas laborales sabemos que nos brinda esa dosis extra de energía y concentración. El aroma del café recién hecho y su sabor intenso nos dan un impulso para enfrentar los retos del día. Además, tomar una pausa para disfrutar de una taza de café puede ser un momento de relax y reflexión en medio de nuestras responsabilidades. Es el combustible que nos mantiene productivos y despiertos durante esas largas horas de trabajo. ¡Una taza de café es el compañero perfecto para nuestras tareas diarias!",
   "urlImage": "https://images.unsplash.com/photo-1661956602868-6ae368943878?auto=format&fit=crop&w=870&q=80",
-  "category": "Café durante el trabajo"
+  "category": "Oficina"
 }
 ```
 
 ```json
 {
-  "title": "Deliciosa ensalada llena de frescura y sabor",
+  "title": "Deliciosa ensalada fresca",
   "content": "Una ensalada bien preparada puede ser una comida nutritiva y deliciosa. En esta imagen, podemos apreciar una ensalada colorida y apetitosa, llena de ingredientes frescos y saludables. Las hojas verdes crujientes, los tomates jugosos, las zanahorias ralladas y los trozos de pollo a la parrilla se combinan para crear una explosión de sabores. El aliño ligero a base de limón y aceite de oliva realza los sabores naturales de los ingredientes y agrega un toque refrescante. Esta ensalada es perfecta para aquellos que buscan una opción saludable y sabrosa para su comida. ¡Una verdadera delicia para el paladar y para el cuerpo!",
   "urlImage": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=870&q=80",
   "category": "Ensalada"
@@ -95,16 +95,16 @@
 
 ```json
 {
-  "title": "Impresionante paisaje natural que deja sin aliento",
+  "title": "Impresionante paisaje que deja sin aliento",
   "content": "La belleza de la naturaleza nos regala paisajes impresionantes que nos dejan sin aliento. En esta imagen, podemos contemplar un paisaje majestuoso con montañas cubiertas de nieve, un lago cristalino y un cielo despejado. La combinación de colores y texturas crea una escena visualmente impactante. Este paisaje nos invita a conectarnos con la grandeza de la naturaleza y a apreciar su poder y serenidad. Los paisajes naturales nos recuerdan la importancia de cuidar y preservar nuestro entorno. Contemplar esta imagen nos llena de admiración y nos inspira a explorar y proteger los tesoros naturales que nos rodean.",
   "urlImage": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=870&q=80",
-  "category": "Paisajes"
+  "category": "Viajes"
 }
 ```
 
 ```json
 {
-  "title": "Maravillosa arquitectura que combina belleza y funcionalidad",
+  "title": "Maravillosa arquitectura muy funcional",
   "content": "La arquitectura es una forma de arte que une belleza y funcionalidad en la creación de espacios habitables. En esta imagen, podemos apreciar una estructura arquitectónica impresionante, con líneas modernas y una combinación armoniosa de materiales. Los detalles cuidadosamente diseñados y la disposición de los espacios crean una experiencia visual y sensorial única. La arquitectura nos brinda lugares para vivir, trabajar, aprender y disfrutar. Además de su aspecto estético, también tiene un impacto en nuestra calidad de vida y en cómo interactuamos con nuestro entorno. Esta imagen nos invita a explorar y admirar la diversidad y creatividad de la arquitectura en el mundo.",
   "urlImage": "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?auto=format&fit=crop&w=870&q=80",
   "category": "Arquitectura"
