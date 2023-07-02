@@ -65,6 +65,29 @@ export class PostService {
     throw new NotFoundException(`No se encontró el post con el id ${id}`);
   }
 
+  async patch(id: number, body: PostPatchDto): Promise<PostEntity> {
+    const post = await this.postRepository.findOne({ where: { id } });
+    if (!post) {
+      throw new NotFoundException(`No se encontró el post con el id ${id}`);
+    }
+
+    if (body.title) {
+      post.title = body.title;
+    }
+    if (body.content) {
+      post.content = body.content;
+    }
+    if (body.urlImage) {
+      post.urlImage = body.urlImage;
+    }
+    if (body.category) {
+      const category = await this.findOrCreateCategory(body.category);
+      post.category = category;
+    }
+
+    return this.postRepository.save(post);
+  }
+
   async delete(id: number): Promise<void> {
     const post = await this.postRepository.findOne({ where: { id } });
     if (post) {

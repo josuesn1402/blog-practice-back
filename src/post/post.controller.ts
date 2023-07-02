@@ -54,7 +54,7 @@ export class PostController {
     @Param('id') id: number,
     @Body() body: PostPatchDto,
   ): Promise<PostEntity> {
-    return this.postService.update(id, body);
+    return this.postService.patch(id, body);
   }
 
   @Delete(':id')
