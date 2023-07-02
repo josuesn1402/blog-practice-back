@@ -4,6 +4,12 @@
   - [Categoria](#categoria)
   - [Posts](#posts)
   - [Comentarios](#comentarios)
+    - [1er Post](#1er-post)
+    - [2do Post](#2do-post)
+    - [3er Post](#3er-post)
+    - [4to Post](#4to-post)
+    - [5to Post](#5to-post)
+    - [6to Post](#6to-post)
 
 ## Categoria
 
@@ -113,6 +119,8 @@
 
 ## Comentarios
 
+### 1er Post
+
 ```json
 {
   "content": "Qué hermosa imagen de zorros en la nieve. Los colores y la composición son simplemente impresionantes. ¡Me encanta!",
@@ -126,6 +134,8 @@
   "post": 1
 }
 ```
+
+### 2do Post
 
 ```json
 {
@@ -141,6 +151,8 @@
 }
 ```
 
+### 3er Post
+
 ```json
 {
   "content": "La ensalada se ve fresca y apetitosa. Me encanta cómo se combinan los ingredientes. Definitivamente probaré esta receta.",
@@ -154,6 +166,8 @@
   "post": 3
 }
 ```
+
+### 4to Post
 
 ```json
 {
@@ -169,6 +183,8 @@
 }
 ```
 
+### 5to Post
+
 ```json
 {
   "content": "La arquitectura de este edificio es asombrosa. Los detalles y la estructura son impresionantes. ¡Una obra maestra!",
@@ -182,6 +198,8 @@
   "post": 5
 }
 ```
+
+### 6to Post
 
 ```json
 {
