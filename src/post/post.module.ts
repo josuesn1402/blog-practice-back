@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PostEntity } from './entities/post.entities'; // Asegúrate de importar la entidad correctamente
 import { PostController } from './post.controller';
 import { PostService } from './post.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { PostEntity } from './entities/post.entities';
-import { CategoryController } from './category/category.controller';
-import { CategoryService } from './category/category.service';
-import { CategoryEntity } from './entities/category.entities';
+import { CategoryModule } from 'src/category/category.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([PostEntity, CategoryEntity])],
-  controllers: [PostController, CategoryController],
-  providers: [PostService, CategoryService],
+  imports: [
+    TypeOrmModule.forFeature([PostEntity]),
+    CategoryModule, // Importa y agrega el CategoryModule aquí
+  ],
+  controllers: [PostController],
+  providers: [PostService],
 })
 export class PostModule {}

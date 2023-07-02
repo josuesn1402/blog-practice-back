@@ -1,10 +1,21 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { PostEntity } from 'src/post/entities/post.entities';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('category')
 export class CategoryEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('varchar', { length: 20 })
+  @Column({ unique: true, type: 'varchar', length: 15 })
   description: string;
+
+  @OneToMany(() => PostEntity, (post) => post.category)
+  @JoinColumn()
+  post: PostEntity[];
 }

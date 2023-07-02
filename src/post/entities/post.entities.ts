@@ -1,12 +1,13 @@
+import { CategoryEntity } from 'src/category/entities/category.entities';
 import { CommentsEntity } from 'src/comments/entities/comments.entities';
 import {
   Column,
   Entity,
   JoinColumn,
   OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { CategoryEntity } from './category.entities';
 
 @Entity('post')
 export class PostEntity {
@@ -26,7 +27,6 @@ export class PostEntity {
   @JoinColumn()
   comments: CommentsEntity[];
 
-  @OneToMany(() => CategoryEntity, (category) => category.post)
-  @JoinColumn()
-  category: CategoryEntity[];
+  @ManyToOne(() => CategoryEntity, (category) => category.post)
+  category: CategoryEntity;
 }

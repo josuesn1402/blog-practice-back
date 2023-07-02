@@ -1,16 +1,19 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PostEntity } from './entities/post.entities';
-import { Like, Repository } from 'typeorm';
-import { QueryPostDto } from './dto/query-post.dto';
+import { DeepPartial, Like, Repository } from 'typeorm';
 import { PostDto } from './dto/post.dto';
 import { PostPatchDto } from './dto/post-patch.dto';
+import { QueryPostDto } from './dto/query-post.dto';
+import { CategoryEntity } from 'src/category/entities/category.entities';
 
 @Injectable()
 export class PostService {
   constructor(
     @InjectRepository(PostEntity)
     private postRepository: Repository<PostEntity>,
+    @InjectRepository(CategoryEntity)
+    private categoryRepository: Repository<CategoryEntity>,
   ) {}
 
   getAll(query: QueryPostDto): Promise<PostEntity[]> {
@@ -30,21 +33,36 @@ export class PostService {
   }
 
   async insert(body: PostDto): Promise<PostEntity> {
-    const post = this.postRepository.create(body);
+    const category = await this.findOrCreateCategory(body.category);
+
+    const post = this.postRepository.create({
+      ...body,
+      category,
+    });
+
     await this.postRepository.save(post);
     return post;
   }
 
   async update(id: number, body: PostDto | PostPatchDto): Promise<PostEntity> {
-    const inputPost = {
+    const inputPost: DeepPartial<PostEntity> = {
       id,
       ...body,
+      category: { description: body.category } as DeepPartial<CategoryEntity>,
     };
+
+    if (body.category) {
+      const category = await this.findOrCreateCategory(body.category);
+      inputPost.category = category;
+    }
+
     const post = await this.postRepository.preload(inputPost);
+
     if (post) {
       return this.postRepository.save(post);
     }
-    throw new NotFoundException(`No he encontrado el post con id ${id}`);
+
+    throw new NotFoundException(`No se encontró el post con el id ${id}`);
   }
 
   async delete(id: number): Promise<void> {
@@ -54,5 +72,20 @@ export class PostService {
       return;
     }
     throw new NotFoundException(`No he encontrado el post con id ${id}`);
+  }
+
+  private async findOrCreateCategory(
+    categoryName: string,
+  ): Promise<CategoryEntity> {
+    let category = await this.categoryRepository.findOne({
+      where: { description: categoryName },
+    });
+
+    if (!category) {
+      category = this.categoryRepository.create({ description: categoryName });
+      category = await this.categoryRepository.save(category);
+    }
+
+    return category;
   }
 }

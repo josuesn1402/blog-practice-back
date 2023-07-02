@@ -9,4 +9,7 @@ export class PostDto {
 
   @IsString()
   urlImage: string;
+
+  @IsString()
+  category: string;
 }
