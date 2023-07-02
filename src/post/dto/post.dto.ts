@@ -6,4 +6,7 @@ export class PostDto {
 
   @IsString()
   content: string;
+
+  @IsString()
+  urlImage: string;
 }

@@ -21,7 +21,7 @@ export class CommentsController {
   @Get()
   getAll(@Query() query: QueryCommentsDto): Promise<CommentsEntity[]> {
     const defaultQuery = {
-      limit: 20,
+      limit: 30,
       query: '',
     };
     query = { ...defaultQuery, ...query };

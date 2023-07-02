@@ -17,7 +17,7 @@ export class PostService {
     return this.postRepository.find({
       take: query.limit,
       where: { title: Like(`%${query.query}%`) },
-      order: { [query.order]: 'ASC' },
+      order: { [query.order]: 'DESC' },
     });
   }
 
@@ -26,7 +26,7 @@ export class PostService {
     if (post) {
       return this.postRepository.create(post);
     }
-    throw new NotFoundException(`No  puedo encontrar ese producto`);
+    throw new NotFoundException(`No  puedo encontrar ese post`);
   }
 
   async insert(body: PostDto): Promise<PostEntity> {
@@ -35,5 +35,24 @@ export class PostService {
     return post;
   }
 
-  async update(id: number, body: PostDto | PostPatchDto): Promise<PostEntity> {}
+  async update(id: number, body: PostDto | PostPatchDto): Promise<PostEntity> {
+    const inputPost = {
+      id,
+      ...body,
+    };
+    const post = await this.postRepository.preload(inputPost);
+    if (post) {
+      return this.postRepository.save(post);
+    }
+    throw new NotFoundException(`No he encontrado el post con id ${id}`);
+  }
+
+  async delete(id: number): Promise<void> {
+    const post = await this.postRepository.findOne({ where: { id } });
+    if (post) {
+      await this.postRepository.remove(post);
+      return;
+    }
+    throw new NotFoundException(`No he encontrado el post con id ${id}`);
+  }
 }

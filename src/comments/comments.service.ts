@@ -38,9 +38,11 @@ export class CommentsService {
       id,
       ...body,
     };
-    const comment = await this.commentRepository.preload(inputComment);
-    if (comment) {
-      return this.commentRepository.save(comment);
+    console.log(id);
+    console.log(inputComment);
+    const product = await this.commentRepository.preload(inputComment);
+    if (product) {
+      return this.commentRepository.save(product);
     }
     throw new NotFoundException(`No he encontrado el comentario con id ${id}`);
   }
