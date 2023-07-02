@@ -4,6 +4,7 @@ import { Like, Repository } from 'typeorm';
 import { QueryCommentsDto } from './dto/query-commets.dto';
 import { CommentsDto } from './dto/comments.dto';
 import { CommentsEntity } from './entities/comments.entities';
+import { CommentsPatchDto } from './dto/comments-patch.dto';
 
 @Injectable()
 export class CommentsService {
@@ -33,16 +34,20 @@ export class CommentsService {
     return comment;
   }
 
-  async update(id: number, body: CommentsDto): Promise<CommentsEntity> {
+  async update(
+    id: number,
+    body: CommentsDto | CommentsPatchDto,
+  ): Promise<CommentsEntity> {
     const inputComment = {
       id,
       ...body,
     };
     console.log(id);
     console.log(inputComment);
-    const product = await this.commentRepository.preload(inputComment);
-    if (product) {
-      return this.commentRepository.save(product);
+    const comment = await this.commentRepository.preload(inputComment);
+    console.log(comment);
+    if (comment) {
+      return this.commentRepository.save(comment);
     }
     throw new NotFoundException(`No he encontrado el comentario con id ${id}`);
   }

@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
   Put,
   Query,
@@ -13,6 +14,7 @@ import { QueryCommentsDto } from './dto/query-commets.dto';
 import { CommentsDto } from './dto/comments.dto';
 import { CommentsService } from './comments.service';
 import { CommentsEntity } from './entities/comments.entities';
+import { CommentsPatchDto } from './dto/comments-patch.dto';
 
 @Controller('comments')
 export class CommentsController {
@@ -42,6 +44,14 @@ export class CommentsController {
   async update(
     @Param('id') id: number,
     @Body() body: CommentsDto,
+  ): Promise<CommentsEntity> {
+    return this.commentsService.update(id, body);
+  }
+
+  @Patch(':id')
+  async patch(
+    @Param('id') id: number,
+    @Body() body: CommentsPatchDto,
   ): Promise<CommentsEntity> {
     return this.commentsService.update(id, body);
   }
