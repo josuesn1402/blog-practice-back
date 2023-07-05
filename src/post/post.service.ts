@@ -25,10 +25,17 @@ export class PostService {
   }
 
   async getId(id: number): Promise<PostEntity> {
-    const post = await this.postRepository.findOne({ where: { id } });
+    const post = await this.postRepository
+      .createQueryBuilder('post')
+      .leftJoinAndSelect('post.category', 'category')
+      .leftJoinAndSelect('post.comments', 'comments')
+      .where('post.id = :id', { id })
+      .getOne();
+
     if (post) {
-      return this.postRepository.create(post);
+      return post;
     }
+
     throw new NotFoundException(`No puedo encontrar ese post`);
   }
 

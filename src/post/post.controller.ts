@@ -23,7 +23,7 @@ export class PostController {
   @Get()
   getAll(@Query() query: QueryPostDto): Promise<PostEntity[]> {
     const defaultQuery = {
-      limit: 12,
+      limit: 21,
       query: '',
       order: 'id',
     };
