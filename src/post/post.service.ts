@@ -19,7 +19,7 @@ export class PostService {
   getAll(query: QueryPostDto): Promise<PostEntity[]> {
     return this.postRepository.find({
       take: query.limit,
-      where: { title: Like(`%${query.query}%`) },
+      where: { title: Like(`%${query.query}%`), estado: true },
       order: { [query.order]: 'DESC' },
     });
   }
@@ -44,6 +44,7 @@ export class PostService {
 
     const post = this.postRepository.create({
       ...body,
+      estado: true,
       category,
     });
 
@@ -55,6 +56,7 @@ export class PostService {
     const inputPost: DeepPartial<PostEntity> = {
       id,
       ...body,
+      estado: true,
       category: { description: body.category } as DeepPartial<CategoryEntity>,
     };
 
@@ -95,11 +97,12 @@ export class PostService {
     return this.postRepository.save(post);
   }
 
-  async delete(id: number): Promise<void> {
+  async delete(id: number): Promise<PostEntity> {
     const post = await this.postRepository.findOne({ where: { id } });
     if (post) {
-      await this.postRepository.remove(post);
-      return;
+      post.estado = false;
+
+      return this.postRepository.save(post);
     }
     throw new NotFoundException(`No he encontrado el post con id ${id}`);
   }

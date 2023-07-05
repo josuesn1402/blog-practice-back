@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsBoolean, IsString } from 'class-validator';
 
 export class PostDto {
   @IsString()
@@ -9,6 +9,9 @@ export class PostDto {
 
   @IsString()
   urlImage: string;
+
+  @IsBoolean()
+  estado: boolean;
 
   @IsString()
   category: string;

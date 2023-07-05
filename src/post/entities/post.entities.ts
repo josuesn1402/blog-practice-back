@@ -23,6 +23,9 @@ export class PostEntity {
   @Column('varchar', { length: 230 })
   urlImage: string;
 
+  @Column('boolean')
+  estado: boolean;
+
   @OneToMany(() => CommentsEntity, (comment) => comment.post)
   @JoinColumn()
   comments: CommentsEntity[];
