@@ -33,6 +33,14 @@ export class CommentsController {
     return this.commentsService.getId(id);
   }
 
+  @Get('post/:postId')
+  async getCommentsByPostId(
+    @Param('postId') postId: number,
+  ): Promise<CommentsEntity[]> {
+    const comments = await this.commentsService.getCommentsByPostId(postId);
+    return comments;
+  }
+
   @Post()
   async create(@Body() body: CommentsDto): Promise<CommentsEntity> {
     return this.commentsService.insert(body);

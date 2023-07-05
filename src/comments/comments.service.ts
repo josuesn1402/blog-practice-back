@@ -27,8 +27,15 @@ export class CommentsService {
     throw new NotFoundException(`No  puedo encontrar ese comentario`);
   }
 
+  async getCommentsByPostId(postId: number): Promise<CommentsEntity[]> {
+    return this.commentRepository.find({ where: { post: { id: postId } } });
+  }
+
   async insert(body: CommentsDto): Promise<CommentsEntity> {
-    const comment = this.commentRepository.create(body);
+    const comment = this.commentRepository.create({
+      ...body,
+      post: { id: body.post },
+    });
     await this.commentRepository.save(comment);
     return comment;
   }
